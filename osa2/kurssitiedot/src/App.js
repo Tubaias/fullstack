@@ -2,7 +2,7 @@ import React from 'react'
 import Course from './components/Course'
 
 const Courses = ({ courses }) => {
-  const rows = () => courses.map(course => <Course course={course} />)
+  const rows = () => courses.map(course => <Course key={course.id} course={course} />)
 
   return <div>
     {rows()}
