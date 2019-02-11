@@ -68,9 +68,8 @@ const App = () => {
 
     personService
       .remove(event.target.value)
-      .then(removedPerson => {
-        // ???
-        setPersons(persons.filter(person => person.id !== removedPerson.id))
+      .then(() => {
+        setPersons(persons.filter(person => person.id != personToDelete.id))
         notify(`henkilö '${personToDelete.name}' poistettu palvelimelta.`)
       })
       .catch(error => {
