@@ -59,7 +59,7 @@ const App = () => {
       })
   }
 
-  const deletePerson = (event) => {
+  const deletePerson = async (event) => {
     const personToDelete = persons.find(person => person.id == event.target.value)
 
     if (!window.confirm(`Poistetaanko ${personToDelete.name}?`)) {
@@ -69,13 +69,13 @@ const App = () => {
     personService
       .remove(event.target.value)
       .then(removedPerson => {
-        //setState-kutsusta huolimatta react ei automaattisesti uudelleenrenderöi numerolistaa, mistä on kyse?
+        // ???
         setPersons(persons.filter(person => person.id !== removedPerson.id))
         notify(`henkilö '${personToDelete.name}' poistettu palvelimelta.`)
       })
       .catch(error => {
         notifyError(`Henkilö ${personToDelete.name} oli jo poistettu.`)
-      })
+    })
   }
 
   const handleNameChange = (event) => {
