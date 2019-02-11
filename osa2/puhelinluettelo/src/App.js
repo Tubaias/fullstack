@@ -59,7 +59,7 @@ const App = () => {
       })
   }
 
-  const deletePerson = async (event) => {
+  const deletePerson = (event) => {
     const personToDelete = persons.find(person => person.id == event.target.value)
 
     if (!window.confirm(`Poistetaanko ${personToDelete.name}?`)) {
